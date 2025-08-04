@@ -22,14 +22,14 @@ jobs:
 
       - name: Build app service image with Docker Compose
         run: |
-          docker-compose build app
+          docker compose build app
           docker tag node-app ${{ secrets.DOCKER_USERNAME }}/crud-app:latest
 
       - name: Push app image to Docker Hub
         run: docker push ${{ secrets.DOCKER_USERNAME }}/crud-app:latest
 
       - name: Start containers for smoke test
-        run: docker-compose up -d
+        run: docker compose up -d
 
       - name: Smoke test app
         run: |
@@ -37,5 +37,5 @@ jobs:
           curl -f http://localhost:5000 || echo "App not responding"
 
       - name: Stop containers
-        run: docker-compose down -v
+        run: docker compose down -v
 
