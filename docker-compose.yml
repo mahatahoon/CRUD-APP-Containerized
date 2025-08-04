@@ -1,7 +1,10 @@
 
 services:
   app:
-    image: mahatahoon/crud-app:latest
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: crud-app
     container_name: node-app
     restart: always
     ports:
