@@ -1,7 +1,7 @@
 
 services:
   app:
-    build: .
+    image: mahatahoon/crud-app:latest
     container_name: node-app
     restart: always
     ports:
