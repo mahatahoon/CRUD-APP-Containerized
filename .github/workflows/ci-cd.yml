@@ -24,7 +24,8 @@ jobs:
       - name: Build app service image with Docker Compose
         run: |
           docker compose build app
-          docker tag node-app ${{ secrets.DOCKER_USERNAME }}/crud-app:latest
+          docker tag crud-app-containerized-app ${{ secrets.DOCKER_USERNAME }}/crud-app:latest
+
 
       - name: Push app image to Docker Hub
         run: docker push ${{ secrets.DOCKER_USERNAME }}/crud-app:latest
